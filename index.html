@@ -12,29 +12,29 @@
 
     <header>
         <div class="countainer-navigation">
-            <div class="nav-icone complated">
-                <img id="events-lable" src="./sources/images/icones/navigation/gray/checked.svg" alt="">
+            <div class="nav-icone">
+                <img id="events-lable" class="icone-img" src="./sources/images/icones/navigation/step1/Event.svg" alt="">
                 <span>Select Event</span>
             </div>
 
-            <div class="bar-navigation bar-complated"></div>
+            <div class="bar-navigation"></div>
 
-            <div class="nav-icone active">
-                <img id="tiket-lable" src="./sources/images/icones/navigation/black/Choose Tickets.svg" alt="">
+            <div class="nav-icone">
+                <img id="tiket-lable" class="icone-img" src="./sources/images/icones/navigation/step1/Tickets.svg" alt="">
                 <span>Choose Tickets</span>
             </div>
 
-            <div class="bar-navigation bar-incompleted"></div>
+            <div class="bar-navigation"></div>
 
-            <div class="nav-icone inaactive">
-                <img id="participants-lable" src="./sources/images/icones/navigation/white/Add Participants.svg" alt="">
+            <div class="nav-icone">
+                <img id="participants-lable" class="icone-img" src="./sources/images/icones/navigation/step1/Participants.svg" alt="">
                 <span>Add Participants</span>
             </div>
 
-            <div class="bar-navigation bar-incompleted"></div>
+            <div class="bar-navigation"></div>
 
-            <div class="nav-icone inactive">
-                <img id="summary-lable" src="./sources/images/icones/navigation/white/checked.svg" alt="">
+            <div class="nav-icone">
+                <img id="summary-lable" class="icone-img" src="./sources/images/icones/navigation/step1/Summary.svg" alt="">
                 <span>Confirm</span>
             </div>
         </div>
@@ -42,7 +42,7 @@
 
     <main>
 
-        <section id="events">
+        <section class="sections sActive">
             <h2>Choose Your Event</h2>
             <p>Browse available events and select one to book</p>
             <div>
@@ -118,7 +118,7 @@
 
         </section>
 
-        <section id="ticket">
+        <section class="sections sInactive">
             <h2>Select Number of Tickets</h2>
             <div>
                 <h3>title of event</h3>
@@ -155,7 +155,7 @@
             </div>
         </section>
 
-        <section id="participants">
+        <section class="sections sInactive">
 
             <h2>Participant Information</h2>
             <p>Participant <span>3 / 2</span></p>
@@ -197,7 +197,7 @@
             </div>
         </section>
 
-        <section id="summary">
+        <section class="sections sInactive">
 
             <h2>Booking Summary</h2>
             <p>Please review your booking details</p>
@@ -256,8 +256,8 @@
         </section>
 
         <section id="navBtns">
-            <button>Back</button>
-            <button>Next</button>
+            <button id="backBtn">Back</button>
+            <button id="nextBtn">Next</button>
         </section>
     </main>
 

@@ -7,18 +7,6 @@ main{
     background-color: #F3F4F6;
 }
 
-#events{
-    display: none;
-}
-#ticket{
-    display: block;
-}
-#participants{
-    display: none;
-}
-#summary{
-    display: none;
-}
 
 .countainer-navigation{
     display: flex;
@@ -44,11 +32,13 @@ main{
 .bar-navigation{
     height: 4px;
     width:15%;
-}
-.bar-complated{
-    background-color: #000000;
+     background-color: #b4b4b4;
 }
 
-.bar-incompleted{
-    background-color: #b4b4b4;
+.sActive{
+    display: block;
+}
+
+.sInactive{
+    display:none;
 }
