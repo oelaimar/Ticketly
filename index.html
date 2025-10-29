@@ -5,42 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Ticketly</title>
 </head>
 
 <body>
 
     <header>
-        <div>
-            <img src="./sources/images/icones/black/Select Event.svg" alt="">
-            <span>Select Event</span>
-        </div>
+        <div class="countainer-navigation">
+            <div class="nav-icone complated">
+                <img id="events-lable" src="./sources/images/icones/navigation/gray/checked.svg" alt="">
+                <span>Select Event</span>
+            </div>
 
-        <div></div>
+            <div class="bar-navigation bar-complated"></div>
 
-        <div>
-            <img src="./sources/images/icones/white/Choose Tickets.svg" alt="">
-            <span>Choose Tickets</span>
-        </div>
+            <div class="nav-icone active">
+                <img id="tiket-lable" src="./sources/images/icones/navigation/black/Choose Tickets.svg" alt="">
+                <span>Choose Tickets</span>
+            </div>
 
-        <div></div>
+            <div class="bar-navigation bar-incompleted"></div>
 
-        <div>
-            <img src="./sources/images/icones/navigation/white/Add Participants.svg" alt="">
-            <span>Add Participants</span>
-        </div>
+            <div class="nav-icone inaactive">
+                <img id="participants-lable" src="./sources/images/icones/navigation/white/Add Participants.svg" alt="">
+                <span>Add Participants</span>
+            </div>
 
-        <div></div>
+            <div class="bar-navigation bar-incompleted"></div>
 
-        <div>
-            <img src="./sources/images/icones/white/checked.svg" alt="">
-            <span>Confirm</span>
+            <div class="nav-icone inactive">
+                <img id="summary-lable" src="./sources/images/icones/navigation/white/checked.svg" alt="">
+                <span>Confirm</span>
+            </div>
         </div>
     </header>
 
     <main>
 
-        <section>
+        <section id="events">
             <h2>Choose Your Event</h2>
             <p>Browse available events and select one to book</p>
             <div>
@@ -116,7 +118,7 @@
 
         </section>
 
-        <section>
+        <section id="ticket">
             <h2>Select Number of Tickets</h2>
             <div>
                 <h3>title of event</h3>
@@ -125,9 +127,10 @@
             </div>
 
             <div>
-                <div>-</div>
-                <div>0</div>
-                <div>+</div>
+                <div><button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
                 <div>Available: <span>0</span> seats</div>
             </div>
 
@@ -152,7 +155,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="participants">
 
             <h2>Participant Information</h2>
             <p>Participant <span>3 / 2</span></p>
@@ -194,7 +197,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="summary">
 
             <h2>Booking Summary</h2>
             <p>Please review your booking details</p>
@@ -252,7 +255,7 @@
             <button><img src="./sources/images/icones/icones/check.svg" alt="">Confirm Booking</button>
         </section>
 
-        <section>
+        <section id="navBtns">
             <button>Back</button>
             <button>Next</button>
         </section>
