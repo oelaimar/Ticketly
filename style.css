@@ -42,3 +42,11 @@ main{
 .sInactive{
     display:none;
 }
+
+.inactiveBtn{
+    visibility: hidden;
+}
+
+.activeBtn{
+    visibility: visible;
+}

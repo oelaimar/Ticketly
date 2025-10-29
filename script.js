@@ -39,4 +39,21 @@ function updateSteps(step){
     }
     sections[step-1].classList.remove("sInactive");
     sections[step-1].classList.add("sActive");
+
+    // hide the back/next btn ing the step 1 and 4
+    if(currentStep === 4){
+        nextBtn.classList.add("inactiveBtn");
+        nextBtn.classList.remove("activeBtn");
+    }else{
+        nextBtn.classList.add("activeBtn");
+        nextBtn.classList.remove("inactiveBtn");
+    }
+
+    if(currentStep === 1){
+        backBtn.classList.add("inactiveBtn");
+        backBtn.classList.remove("activeBtn");
+    }else{
+        backBtn.classList.add("activeBtn");
+        backBtn.classList.remove("inactiveBtn");
+    }
 }
