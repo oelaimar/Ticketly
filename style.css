@@ -50,3 +50,61 @@ main{
 .activeBtn{
     visibility: visible;
 }
+
+.section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.eventsContainer{
+    display: grid;
+    width: 100%;
+    gap:1em;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    
+}
+.event > img{
+    width: 100%;
+}
+.event span{
+    font-size: 1em;
+    color:#4B5563;
+}
+.event{
+    display:flex;
+    flex-direction: column;
+    width:fit-content;
+    background-color: white;
+    border: 2px solid #D1D5DB;
+    gap:10px;
+    border-radius: 12px;
+    padding:20px;
+}
+.price-seats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price{
+    background-color: black;
+    color:white;
+    padding:10px;
+    border-radius: 8px;
+}
+.seats{
+    background-color: #E5E7EB;
+    border-radius: 100px;
+    padding:5px;
+}
+.bookBtn{
+    width: 100%;
+    height: 50px;
+    border: 2px solid #D1D5DB;
+    background-color: white;
+    border-radius: 8px;
+}
+.bookBtn:hover{
+    border: 2px solid black;
+}
