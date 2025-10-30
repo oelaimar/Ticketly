@@ -68,10 +68,7 @@ main{
 .event > img{
     width: 100%;
 }
-.event span{
-    font-size: 1em;
-    color:#4B5563;
-}
+
 .event{
     display:flex;
     flex-direction: column;
@@ -84,7 +81,7 @@ main{
 
 .event:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    
+
 }
 .evantInactive{
     border: 2px solid #D1D5DB;
@@ -99,13 +96,14 @@ main{
     justify-content: space-between;
     align-items: center;
 }
-.price{
+.price-container{
     background-color: black;
     color:white;
     padding:10px;
     border-radius: 8px;
 }
-.seats{
+
+.seats-container{
     background-color: #E5E7EB;
     border-radius: 100px;
     padding:5px;

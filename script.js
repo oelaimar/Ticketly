@@ -4,13 +4,25 @@ const sections = document.getElementsByClassName("sections");
 const nextBtn = document.getElementById("nextBtn");
 const backBtn = document.getElementById("backBtn");
 const allEvent = document.querySelectorAll(".event");
+const ticketElements = document.querySelector(".ticketContainer");
 
 
 let currentStep = 1;
 
+
+// condition select event first to click next btn
+function selectEventCheck(){
+    for(const element of allEvent){
+        if(element.classList.contains("eventActive")){
+            return true;
+        }
+    }
+    return false;
+}
+
 // 2 functions for updating the step and it will do an update
 nextBtn.addEventListener('click', function(){
-    if(currentStep < 4){
+    if(currentStep < 4 && selectEventCheck()){
         currentStep ++;
         updateSteps(currentStep);
     }
@@ -51,7 +63,7 @@ function updateSteps(step){
     }
 
     if(currentStep === 1){
-        backBtn.classList.adtitled("inactiveBtn");
+        backBtn.classList.add("inactiveBtn");
         backBtn.classList.remove("activeBtn");
     }else{
         backBtn.classList.add("activeBtn");
@@ -96,17 +108,19 @@ function change(event){
     dataOfElement.querySelector(".bookBtn").style.color = "white";
     dataOfElement.querySelector(".bookBtn").textContent = "Selected";
 
-
-
     // store the data of an event selected
-    title = dataOfElement.querySelector(".dataOfElement");
+    title = dataOfElement.querySelector(".titleOfEvent");
     date = dataOfElement.querySelector(".dateOfEvent");
     local = dataOfElement.querySelector(".locationOfEvent");
     price = dataOfElement.querySelector(".price");
     seats = dataOfElement.querySelector(".seats");
 
+    ticketElements.querySelector(".ticket-titleOfEvent").innerHTML = title.innerHTML;
+    ticketElements.querySelector(".ticket-dateOfEvent").innerHTML = date.innerHTML;
+    ticketElements.querySelector(".ticket-locationOfEvent").innerHTML = local.innerHTML;
+    ticketElements.querySelector(".ticket-price").innerHTML = price.innerHTML;
+    ticketElements.querySelector(".ticket-seats").innerHTML = seats.innerHTML;
 
-    
 
 }
 
