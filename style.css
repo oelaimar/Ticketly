@@ -60,10 +60,10 @@ main{
 .eventsContainer{
     display: grid;
     width: 100%;
-    gap:1em;
+    gap:10px;
     grid-template-columns: repeat(auto-fit, 300px);
     justify-content: center;
-    
+    justify-items: center;
 }
 .event > img{
     width: 100%;
@@ -77,11 +77,23 @@ main{
     flex-direction: column;
     width:fit-content;
     background-color: white;
-    border: 2px solid #D1D5DB;
     gap:10px;
     border-radius: 12px;
     padding:20px;
 }
+
+.event:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+.evantInactive{
+    border: 2px solid #D1D5DB;
+}
+.eventActive{
+    border: 2px solid #000000;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 .price-seats{
     display: flex;
     justify-content: space-between;
@@ -104,7 +116,14 @@ main{
     border: 2px solid #D1D5DB;
     background-color: white;
     border-radius: 8px;
+    font-weight: bold;
 }
 .bookBtn:hover{
     border: 2px solid black;
+}
+
+@media (min-width: 900px) {
+    .eventsContainer {
+        grid-template-columns: repeat(3, 300px);
+    }
 }

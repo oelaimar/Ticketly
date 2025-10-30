@@ -3,6 +3,7 @@ const navBar = document.getElementsByClassName("bar-navigation");
 const sections = document.getElementsByClassName("sections");
 const nextBtn = document.getElementById("nextBtn");
 const backBtn = document.getElementById("backBtn");
+const allEvent = document.querySelectorAll(".event");
 
 
 let currentStep = 1;
@@ -40,7 +41,7 @@ function updateSteps(step){
     sections[step-1].classList.remove("sInactive");
     sections[step-1].classList.add("sActive");
 
-    // hide the back/next btn ing the step 1 and 4
+    // hide the back/next btn in the step 1 and 4
     if(currentStep === 4){
         nextBtn.classList.add("inactiveBtn");
         nextBtn.classList.remove("activeBtn");
@@ -50,10 +51,65 @@ function updateSteps(step){
     }
 
     if(currentStep === 1){
-        backBtn.classList.add("inactiveBtn");
+        backBtn.classList.adtitled("inactiveBtn");
         backBtn.classList.remove("activeBtn");
     }else{
         backBtn.classList.add("activeBtn");
         backBtn.classList.remove("inactiveBtn");
     }
 }
+
+for(const events of allEvent){
+    events.addEventListener("click", change);
+}
+
+// varibales of the data
+
+let title;
+let date;
+let local;
+let price;
+let seats;
+
+function change(event){
+
+    for(const element of allEvent){
+        element.classList.add("evantInactive");
+        element.classList.remove("eventActive");
+
+        // turn all btn to normal stat
+        element.querySelector(".bookBtn").style.backgroundColor = "white";
+        element.querySelector(".bookBtn").style.color = "black";
+        element.querySelector(".bookBtn").textContent = "Book Now";
+
+    }
+
+    
+    event.currentTarget.classList.add("eventActive");
+    event.currentTarget.classList.remove("evantInactive");
+
+    // create the query after it give the select one the class
+    const dataOfElement = document.querySelector(".eventActive");
+    
+    // turn the book btn to black and change the textContent
+    dataOfElement.querySelector(".bookBtn").style.backgroundColor = "black";
+    dataOfElement.querySelector(".bookBtn").style.color = "white";
+    dataOfElement.querySelector(".bookBtn").textContent = "Selected";
+
+
+
+    // store the data of an event selected
+    title = dataOfElement.querySelector(".dataOfElement");
+    date = dataOfElement.querySelector(".dateOfEvent");
+    local = dataOfElement.querySelector(".locationOfEvent");
+    price = dataOfElement.querySelector(".price");
+    seats = dataOfElement.querySelector(".seats");
+
+
+    
+
+}
+
+
+
+  
