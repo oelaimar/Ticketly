@@ -114,16 +114,47 @@ function change(event){
     local = dataOfElement.querySelector(".locationOfEvent");
     price = dataOfElement.querySelector(".price");
     seats = dataOfElement.querySelector(".seats");
+    quantity = 1;
+    minQantity = 1;
+    maxQantity = Number(seats.textContent);
 
     ticketElements.querySelector(".ticket-titleOfEvent").innerHTML = title.innerHTML;
     ticketElements.querySelector(".ticket-dateOfEvent").innerHTML = date.innerHTML;
     ticketElements.querySelector(".ticket-locationOfEvent").innerHTML = local.innerHTML;
-    ticketElements.querySelector(".ticket-price").innerHTML = price.innerHTML;
     ticketElements.querySelector(".ticket-seats").innerHTML = seats.innerHTML;
-
+    document.querySelector(".numOfTikets").textContent = quantity;
+    
+    for(const element of ticketElements.querySelectorAll(".ticket-price")){
+        element.innerHTML = price.innerHTML;
+    }
 
 }
 
+const btnMinus = document.getElementById("btnMinus");
+const btnPlus = document.getElementById("btnPlus");
+
+let quantity = 1;
+
+let minQantity;
+let maxQantity;
 
 
-  
+btnPlus.addEventListener("click", function(){
+    if(quantity < maxQantity){
+        quantity++;
+        updateQuantity();
+    }
+});
+
+btnMinus.addEventListener("click", function(){
+    if(quantity > minQantity){
+        quantity--;
+        updateQuantity();
+    }
+});
+
+function updateQuantity(){
+    document.querySelector(".numOfTikets").textContent = quantity;
+    document.querySelector(".Quantity").textContent = quantity;
+    document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
+}

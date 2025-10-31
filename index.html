@@ -146,9 +146,9 @@
 
                     <div class="ticket TickeCount">
                         <div class="ticketBtn">
-                            <button class="btnPlus numTicketBtn">-</button>
+                            <button id="btnMinus" class="numTicketBtn">-</button>
                             <span class="numOfTikets">1</span>
-                            <button class="btnMinus numTicketBtn">+</button>
+                            <button id="btnPlus" class="numTicketBtn">+</button>
                         </div>
                         <div>Available: <span class="ticket-seats"></span> seats</div>
                     </div>
@@ -156,19 +156,25 @@
                     <div class="ticket">
                         <div class="calculPricing">
                             <span>Price per ticket:</span>
-                            <span>0€</span>
+                            <div>
+                                <span class="ticket-price">0</span>
+                                <span>€</span>
+                            </div>
                         </div>
 
                         <div class="calculPricing">
                             <span>Quantity:</span>
-                            <span>0</span>
+                            <span class="Quantity">0</span>
                         </div>
 
                         <div class="divisor"></div>
 
                         <div class="calculPricing total">
                             <span>Total:</span>
-                            <span>0€</span>
+                            <div>
+                                <span class="totalPrice">0</span>
+                                <span>€</span>
+                            </div>
                         </div>
                     </div>
                 </div>
