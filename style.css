@@ -7,6 +7,9 @@ main{
     background-color: #F3F4F6;
 }
 
+h2{
+    font-size: 3rem;
+}
 
 .countainer-navigation{
     display: flex;
@@ -32,7 +35,7 @@ main{
 .bar-navigation{
     height: 4px;
     width:15%;
-     background-color: #b4b4b4;
+    background-color: #b4b4b4;
 }
 
 .sActive{
@@ -120,6 +123,69 @@ main{
     border: 2px solid black;
 }
 
+.ticketContainer{
+    display:flex;
+    flex-direction: column;
+    margin: 10px 0;
+    gap: 20px 0;
+}
+.ticket{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 12px;
+    padding:20px;
+    min-width:500px;
+    gap: 15px 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.priceBold , .total{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.ticketBtn{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.TickeCount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numOfTikets{
+    font-size: 4em;
+}
+
+.numTicketBtn{
+    height: 48px;
+    width: 48px;
+    background-color: white;
+    border: 1px solid #D1D5DB;
+    border-radius: 50%;
+}
+.numTicketBtn:hover{
+    border: 1px solid #000000;
+}
+
+.calculPricing{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+
+
+.divisor{
+    height: 2px;
+    background-color: #b4b4b4;
+    border-radius: 10px;
+}
 @media (min-width: 900px) {
     .eventsContainer {
         grid-template-columns: repeat(3, 300px);
