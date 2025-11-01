@@ -176,10 +176,98 @@ h2{
 .calculPricing{
     display: flex;
     justify-content: space-between;
- 
+    gap: 10px;
 }
 
+.participantContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
 
+.participantAddContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.formContainer , .participantAddedContainer{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 12px;
+    padding:20px;
+    width:400px;
+    gap: 15px 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: fit-content;
+    
+}
+.formContainer > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer > form > input{
+    height: 50px;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+.formContainer > form > input[type=submit]{
+    color: #6B7280;
+    background: url('./sources/images/icones/icones/plus\ person.svg');
+    background-position:left;
+    background-repeat:no-repeat;
+    background-position-x: 110px ;
+}
+
+.participantInfoContainer{
+    display: flex;
+    flex-direction: column;
+}
+.participantInfo{
+    font-size: 20px;
+}
+.fullName{
+    font-weight: bold;
+    margin-top:10px ;
+}
+.participantAdded{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #D1D5DB ;
+    padding: 10px;
+    border-radius: 8px;
+}
+.participantNeeded{
+    display: flex;
+    justify-content: center;
+    background-color: #FFF7ED;
+    border: 1px solid #FDBA74;
+    color: #C2410C;
+    text-align: center;
+    align-items: center;
+    height: 60px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.participantNum{
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+}
 
 .divisor{
     height: 2px;
@@ -189,5 +277,11 @@ h2{
 @media (min-width: 900px) {
     .eventsContainer {
         grid-template-columns: repeat(3, 300px);
+    }
+}
+
+@media (max-width: 920px){
+    .participantContainer{
+        width: 400px;
     }
 }
