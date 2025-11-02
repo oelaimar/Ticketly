@@ -23,6 +23,8 @@ function selectEventCheck() {
 // 2 functions for updating the step and it will do an update
 nextBtn.addEventListener('click', function () {
     if (currentStep < 4 && selectEventCheck()) {
+        // diseble the next in the step 3
+        if(currentStep == 3 && participantId != quantity) return;
         currentStep++;
         updateSteps(currentStep);
     }
@@ -30,6 +32,8 @@ nextBtn.addEventListener('click', function () {
 
 backBtn.addEventListener('click', function () {
     if (currentStep > 1) {
+        //when click back initilase the partisipan arr
+        participanArr = {};
         currentStep--;
         updateSteps(currentStep);
     }
@@ -83,7 +87,6 @@ function updateSteps(step) {
     list.innerHTML = `<h3>Added Participants (<span id="participantAdded">0</span>)</h3>`;
     participantId = 0;
     pAdded.textContent = participantId;
-    // participantAdded.textContent = participantId;
     participantLeft.textContent = quantity;
     shouldBeAdded.textContent = quantity;
 
@@ -256,7 +259,6 @@ form.addEventListener("submit", function (e) {
                             <div class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>`;
 
     participanArr[participantId] = {fname: fname.value, lname: lname.value, email: email.value, phone: phone.value}
-
     list.appendChild(addDivList);
 
     participanArr
@@ -296,5 +298,3 @@ form.addEventListener("submit", function (e) {
 
     form.reset()
 });
-
-
