@@ -185,50 +185,54 @@
             <div class="section">
 
                 <h2>Participant Information</h2>
-                <p>Participant <span>3 / 2</span></p>
+                <p>Participant <span id="pAdded">0</span> / <span id="ShouldBeAdded">1</span></p>
                 <div class="participantContainer">
                     <div class="participantAddContainer">                        
                         <div class="formContainer">
-                            <form>
+                            <form id="ParticipantForm">
                                     <label for="fname">First name:</label>
-                                    <input type="text" id="fname" name="fname"><br>
+                                    <input type="text" id="fname" name="fname" placeholder="First Name">
+                                    <span class="error" id="fnameError"></span><br>
 
                                     <label for="lname">Last name:</label>
-                                    <input type="text" id="lname" name="lname"><br>
+                                    <input type="text" id="lname" name="lname" placeholder="Last Name">
+                                    <span class="error" id="lnameError"></span><br>
 
                                     <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email"><br>
+                                    <input type="email" id="email" name="email" placeholder="Email">
+                                    <span class="error" id="emailError"></span><br>
 
                                     <label for="phone">phone:</label>
-                                    <input type="tel" id="phone" name="phone"><br><br>
+                                    <input type="text" id="phone" name="phone" placeholder="phone(ex: +212 612345678)">
+                                    <span class="error" id="phoneError"></span><br>
 
-                                    <input type="submit" value="Add Participant">
+                                    <button id="submitBtn" type="submit" >Add Participant</button>
 
                            </form>
                         </div>
                     
-                        <div class="participantAddedContainer">
-                            <h3>Added Participants (<span>0</span>)</h3>
+                        <div id="participantAddedContainer">
+                            <h3>Added Participants (<span id="participantAdded">0</span>)</h3>
                             <!-- add dives trghou js -->
                             <!-- this is jsut a demo -->
 
-
-                            <!-- <div class="participantAdded" id="participantNum">
-                                    <div class="participantNum">10</div>
+                            <!-- 
+                            <div class="participantAdded" id="participant${participantId}">
+                                    <div class="participantNum">${participantId+1}</div>
                                     <div class="participantInfoContainer">
-                                        <span class="participantInfo fullName">fname lname</span>
-                                        <span class="participantInfo">Email</span>
-                                        <span class="participantInfo">Phone</span>
+                                        <span class="participantInfo fullName">${fname.value} ${lname.value}</span>
+                                        <span class="participantInfo">${email.value}</span>
+                                        <span class="participantInfo">${phone.value}</span>
                                     </div>
-                                    <div class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>
-                            </div>     -->
+                                    <div id="deleteParticipant${participantId}" class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>
+                            </div>
+                            -->
 
-                            
                        </div>
                     </div>
                 
                     <div class="participantNeeded">
-                        <p>Please add <span>0</span> more participants</p>
+                        <p>Please add <span id="participantLeft">1</span> more participants</p>
                     </div>
                 </div>
             </div>

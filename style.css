@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: arial, sans-serif;
 }
 
 main{
@@ -168,6 +169,7 @@ h2{
     background-color: white;
     border: 1px solid #D1D5DB;
     border-radius: 50%;
+    font-size: 30px;
 }
 .numTicketBtn:hover{
     border: 1px solid #000000;
@@ -192,7 +194,7 @@ h2{
     gap: 20px;
 }
 
-.formContainer , .participantAddedContainer{
+.formContainer , #participantAddedContainer{
     display:flex;
     flex-direction: column;
     background-color: white;
@@ -218,12 +220,22 @@ h2{
     padding: 0 15px;
 }
 
-.formContainer > form > input[type=submit]{
-    color: #6B7280;
+#submitBtn{
+    color: #ffffff;
     background: url('./sources/images/icones/icones/plus\ person.svg');
     background-position:left;
     background-repeat:no-repeat;
-    background-position-x: 110px ;
+    background-position-x: 110px;
+    background-color: #000000;
+    height: 50px;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+#submitBtn:hover{
+    background-color: #252525;
 }
 
 .participantInfoContainer{
@@ -267,6 +279,11 @@ h2{
     text-align: center;
     padding: 10px;
     border-radius: 50%;
+}
+.error{
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;    
 }
 
 .divisor{

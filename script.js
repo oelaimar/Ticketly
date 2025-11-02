@@ -69,6 +69,12 @@ function updateSteps(step){
         backBtn.classList.add("activeBtn");
         backBtn.classList.remove("inactiveBtn");
     }
+
+    // initials the quantity and the totla price
+    document.querySelector(".numOfTikets").textContent = quantity;
+    document.querySelector(".Quantity").textContent = quantity;
+    document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
+
 }
 
 for(const events of allEvent){
@@ -133,6 +139,9 @@ function change(event){
 const btnMinus = document.getElementById("btnMinus");
 const btnPlus = document.getElementById("btnPlus");
 
+const souldBeAdded = document.getElementById("ShouldBeAdded");
+const participantLeft = document.getElementById("participantLeft");
+
 let quantity = 1;
 
 let minQantity;
@@ -157,4 +166,93 @@ function updateQuantity(){
     document.querySelector(".numOfTikets").textContent = quantity;
     document.querySelector(".Quantity").textContent = quantity;
     document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
+
+    //add the value on the the participant
+    ShouldBeAdded.textContent = quantity;
+    participantLeft.textContent = quantity;
 }
+
+const form = document.getElementById("ParticipantForm");
+const list = document.getElementById("participantAddedContainer");
+
+
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+
+const fnameError = document.getElementById("fnameError");
+const lnameError = document.getElementById("lnameError");
+const emailError = document.getElementById("emailError");
+const phoneError = document.getElementById("phoneError");
+
+const nameRegex = /^[a-zA-Z]{2,}$/;
+const emailRegax =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^(?:(?:(?:\+|00)212[\s]?(?:[\s]?\(0\)[\s]?)?)|0){1}(?:5[\s.-]?[2-3]|6[\s.-]?[13-9]){1}[0-9]{1}(?:[\s.-]?\d{2}){3}$/;
+
+const participantAdded = document.getElementById("participantAdded");
+const pAdded = document.getElementById("pAdded");
+const submitBtn = document.getElementById("submitBtn");
+
+let participantId = 0;
+
+form.addEventListener("submit", function (e){
+    e.preventDefault();
+
+    let valid = true;
+
+    if(!nameRegex.test(fname.value)){
+        fnameError.textContent = "Invalid First Name";
+        valid = false;
+    }else{
+        fnameError.textContent = "";
+    }
+
+    if(!nameRegex.test(lname.value)){
+        lnameError.textContent = "Invalid Last Name";
+        valid = false;
+    }else{
+        lnameError.textContent = "";
+    }
+
+    if(!emailRegax.test(email.value)){
+        emailError.textContent = "Invalid Email";
+        valid = false;
+    }else{
+        emailError.textContent = "";
+    }
+
+    if(!phoneRegex.test(phone.value)){
+        phoneError.textContent = "Invalid Phone Number";
+        valid = false;
+    }else{
+        phoneError.textContent = "";
+    }
+
+    if(!valid) return;
+
+
+    list.innerHTML += `<div class="participantAdded" id="participant${participantId}">
+                                    <div class="participantNum">${participantId+1}</div>
+                                    <div class="participantInfoContainer">
+                                        <span class="participantInfo fullName">${fname.value} ${lname.value}</span>
+                                        <span class="participantInfo">${email.value}</span>
+                                        <span class="participantInfo">${phone.value}</span>
+                                    </div>
+                                    <div id="deleteParticipant${participantId}" class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>
+                            </div>`;
+    participantId++;
+    participantAdded.textContent = participantId;
+    pAdded.textContent = participantId;
+    participantLeft.textContent -= 1;
+   
+    if(participantId === quantity){
+        document.querySelector(".participantNeeded").style.display = "none";
+        submitBtn.setAttribute("disabled","");
+        submitBtn.style.backgroundColor = "#D1D5DB"
+    }
+
+    form.reset()
+});
+
+
