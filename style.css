@@ -132,7 +132,7 @@ h2{
     border: 2px solid black;
 }
 
-.ticketContainer{
+.ticketContainer , .summaryContainer{
     display:flex;
     flex-direction: column;
     margin: 10px 0;
@@ -296,6 +296,40 @@ h2{
     margin-top: 8px;    
 }
 
+.summary-numOfTickets{
+    background-color:#000000;
+    color: white;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.columnList{
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(3, 1fr);
+}
+.columnList > li{
+    margin: 5px 0;
+}
+
+.confirmBtn{
+    display: flex;
+    color:white;
+    background-color: black;
+    border: 2px solid black;
+    padding:10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+.confirmBtn:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgb(128, 128, 128);
+    border: 2px solid black;
+}
 #navBtns{
     display: flex;
     justify-content: space-between;

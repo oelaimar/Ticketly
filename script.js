@@ -298,3 +298,12 @@ form.addEventListener("submit", function (e) {
 
     form.reset()
 });
+
+const summaryTitle = document.querySelector(".summary-titleOfEvent");
+const summaryDate = document.querySelector(".summary-dateOfEvent");
+const summaryLocal = document.querySelector(".summary-locationOfEvent");
+const summaryTicket = document.querySelector(".summary-numOfTickets");
+
+const summaryPrice = document.querySelector(".summary-price");
+const summaryQantity = document.querySelector(".QuantitySummary");
+const summaryTotal = document.querySelector(".totalPriceSummary");
