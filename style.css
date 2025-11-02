@@ -249,7 +249,7 @@ h2{
     font-weight: bold;
     margin-top:10px ;
 }
-.participantAdded{
+.participantAddedClass{
     display: flex;
     justify-content: space-between;
     border: 2px solid #D1D5DB ;
