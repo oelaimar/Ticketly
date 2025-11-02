@@ -24,7 +24,7 @@ function selectEventCheck() {
 nextBtn.addEventListener('click', function () {
     if (currentStep < 4 && selectEventCheck()) {
         // diseble the next in the step 3
-        if(currentStep == 3 && participantId != quantity) return;
+        if (currentStep == 3 && participantId != quantity) return;
         currentStep++;
         updateSteps(currentStep);
     }
@@ -32,8 +32,10 @@ nextBtn.addEventListener('click', function () {
 
 backBtn.addEventListener('click', function () {
     if (currentStep > 1) {
-        //when click back initilase the partisipan arr
+        //when click back initilase the partisipan object
         participanArr = {};
+        summaryList.innerHTML = "";
+
         currentStep--;
         updateSteps(currentStep);
     }
@@ -89,6 +91,9 @@ function updateSteps(step) {
     pAdded.textContent = participantId;
     participantLeft.textContent = quantity;
     shouldBeAdded.textContent = quantity;
+    for(const e of summaryTicket){
+        e.textContent = quantity;
+    }
 
 }
 
@@ -145,6 +150,10 @@ function change(event) {
     ticketElements.querySelector(".ticket-seats").innerHTML = seats.innerHTML;
     document.querySelector(".numOfTikets").textContent = quantity;
 
+    summaryTitle.innerHTML = title.innerHTML;
+    summaryDate.innerHTML = date.innerHTML;
+    summaryLocal.innerHTML = local.innerHTML;
+
     for (const element of ticketElements.querySelectorAll(".ticket-price")) {
         element.innerHTML = price.innerHTML;
     }
@@ -182,11 +191,15 @@ function updateQuantity() {
     document.querySelector(".Quantity").textContent = quantity;
     document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
 
+    summaryPrice.textContent = quantity * Number(price.textContent);
+
 
 }
 
 const form = document.getElementById("ParticipantForm");
 const list = document.getElementById("participantAddedContainer");
+const summaryList = document.querySelector(".summaryParticipantList");
+summaryList.innerHTML = "";
 
 
 const fname = document.getElementById("fname");
@@ -258,28 +271,38 @@ form.addEventListener("submit", function (e) {
                         </div>
                             <div class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>`;
 
-    participanArr[participantId] = {fname: fname.value, lname: lname.value, email: email.value, phone: phone.value}
+    participanArr[participantId] = { fname: fname.value, lname: lname.value, email: email.value, phone: phone.value }
     list.appendChild(addDivList);
 
-    participanArr
+    const addDivListSummary = document.createElement("ul");
+    addDivListSummary.className = "columnList";
 
-    if (participantId+1 === quantity) {
+
+    for (i = 0; i <= participantId; i++) {
+        addDivListSummary.innerHTML =
+            ` <li>${participanArr[i].fname} ${participanArr[i].lname}</li>
+        <li>${participanArr[i].email}</li>
+        <li>${participanArr[i].phone}</li>`;
+        summaryList.appendChild(addDivListSummary);
+    }
+
+
+    if (participantId + 1 === quantity) {
         document.querySelector(".participantNeeded").style.display = "none";
         submitBtn.setAttribute("disabled", "");
         submitBtn.style.backgroundColor = "#D1D5DB";
     }
 
     const deletBtn = addDivList.querySelector(".deleteParticipant");
-    const participantAddedClass = document.querySelectorAll(".participantNum");
 
-    deletBtn.addEventListener("click", function(){
+
+    deletBtn.addEventListener("click", function () {
         addDivList.remove();
-        participanArr.splice(participantId, 1);
         participantId--;
         pAdded.textContent = participantId;
         const participantAdded = document.getElementById("participantAdded");
         participantAdded.textContent = participantId;
-        participantLeft.textContent = Number(participantLeft.textContent)+1;
+        participantLeft.textContent = Number(participantLeft.textContent) + 1;
 
         if (participantId < quantity) {
             document.querySelector(".participantNeeded").style.display = "flex";
@@ -302,8 +325,8 @@ form.addEventListener("submit", function (e) {
 const summaryTitle = document.querySelector(".summary-titleOfEvent");
 const summaryDate = document.querySelector(".summary-dateOfEvent");
 const summaryLocal = document.querySelector(".summary-locationOfEvent");
-const summaryTicket = document.querySelector(".summary-numOfTickets");
+const summaryTicket = document.querySelectorAll(".numTikets");
 
 const summaryPrice = document.querySelector(".summary-price");
-const summaryQantity = document.querySelector(".QuantitySummary");
 const summaryTotal = document.querySelector(".totalPriceSummary");
+
