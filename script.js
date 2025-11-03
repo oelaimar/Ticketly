@@ -81,6 +81,10 @@ function updateSteps(step) {
     document.querySelector(".Quantity").textContent = quantity;
     document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
 
+    summaryPrice.textContent = price.textContent;
+    summaryTotal.textContent = quantity * Number(price.textContent);
+
+
     // initials the add participan afte you change the step
     document.querySelector(".participantNeeded").style.display = "flex";
     submitBtn.removeAttribute("disabled", "");
