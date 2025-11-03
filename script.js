@@ -190,10 +190,8 @@ function updateQuantity() {
     document.querySelector(".numOfTikets").textContent = quantity;
     document.querySelector(".Quantity").textContent = quantity;
     document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
-
-    summaryPrice.textContent = quantity * Number(price.textContent);
-
-
+    
+    
 }
 
 const form = document.getElementById("ParticipantForm");
@@ -330,3 +328,9 @@ const summaryTicket = document.querySelectorAll(".numTikets");
 const summaryPrice = document.querySelector(".summary-price");
 const summaryTotal = document.querySelector(".totalPriceSummary");
 
+const confirmBtn = document.querySelector(".confirmBtn");
+
+confirmBtn.addEventListener("click", function(){
+    alert("Booking Confirmed 🎉");
+    window.location.reload();
+});
