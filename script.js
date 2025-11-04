@@ -95,7 +95,7 @@ function updateSteps(step) {
     pAdded.textContent = participantId;
     participantLeft.textContent = quantity;
     shouldBeAdded.textContent = quantity;
-    for(const e of summaryTicket){
+    for (const e of summaryTicket) {
         e.textContent = quantity;
     }
 
@@ -194,8 +194,8 @@ function updateQuantity() {
     document.querySelector(".numOfTikets").textContent = quantity;
     document.querySelector(".Quantity").textContent = quantity;
     document.querySelector(".totalPrice").textContent = quantity * Number(price.textContent);
-    
-    
+
+
 }
 
 const form = document.getElementById("ParticipantForm");
@@ -223,6 +223,7 @@ const pAdded = document.getElementById("pAdded");
 const submitBtn = document.getElementById("submitBtn");
 
 let participantId;
+let idListSummary = 0;
 let participanArr = [];
 
 form.addEventListener("submit", function (e) {
@@ -263,7 +264,7 @@ form.addEventListener("submit", function (e) {
     const addDivList = document.createElement("div");
 
     addDivList.className = "participantAddedClass";
-    addDivList.id = `participant${participantId}`;
+
 
     addDivList.innerHTML = ` <div class="participantNum"><img src="./sources/images/icones/icones/plus\ person.svg" alt=""></div>
                         <div class="participantInfoContainer">
@@ -271,22 +272,22 @@ form.addEventListener("submit", function (e) {
                             <span class="participantInfo">${email.value}</span>
                             <span class="participantInfo">${phone.value}</span>
                         </div>
-                            <div class="deleteParticipant"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>`;
+                            <div class="deleteParticipant" data-id="${idListSummary}"><img src="./sources/images/icones/icones/trash.svg" alt=""></div>`;
 
     participanArr[participantId] = { fname: fname.value, lname: lname.value, email: email.value, phone: phone.value }
     list.appendChild(addDivList);
 
     const addDivListSummary = document.createElement("ul");
     addDivListSummary.className = "columnList";
+    addDivListSummary.id = `${idListSummary}`;
 
+    idListSummary++;
 
-    for (i = 0; i <= participantId; i++) {
-        addDivListSummary.innerHTML =
-            ` <li>${participanArr[i].fname} ${participanArr[i].lname}</li>
-        <li>${participanArr[i].email}</li>
-        <li>${participanArr[i].phone}</li>`;
-        summaryList.appendChild(addDivListSummary);
-    }
+    addDivListSummary.innerHTML =
+        ` <li>${fname.value} ${lname.value}</li>
+              <li>${email.value}</li>
+              <li>${phone.value}</li>`;
+    summaryList.appendChild(addDivListSummary);
 
 
     if (participantId + 1 === quantity) {
@@ -300,6 +301,8 @@ form.addEventListener("submit", function (e) {
 
     deletBtn.addEventListener("click", function () {
         addDivList.remove();
+
+        document.getElementById(`${deletBtn.dataset.id}`).remove();
         participantId--;
         pAdded.textContent = participantId;
         const participantAdded = document.getElementById("participantAdded");
@@ -321,7 +324,7 @@ form.addEventListener("submit", function (e) {
     participantLeft.textContent -= 1;
 
 
-    form.reset()
+    form.reset();
 });
 
 const summaryTitle = document.querySelector(".summary-titleOfEvent");
@@ -334,7 +337,7 @@ const summaryTotal = document.querySelector(".totalPriceSummary");
 
 const confirmBtn = document.querySelector(".confirmBtn");
 
-confirmBtn.addEventListener("click", function(){
+confirmBtn.addEventListener("click", function () {
     alert("Booking Confirmed 🎉");
     window.location.reload();
 });
